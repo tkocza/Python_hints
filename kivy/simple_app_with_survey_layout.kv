@@ -1,0 +1,78 @@
+WindowManager:
+    WelcomeScreen:
+    SurveyScreen:
+
+<WelcomeScreen>
+    name: "welcomeScreen"
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: 'Hello kivy!'
+            size_hint: 1, 0.4
+            font_size: '36sp'
+            on_press:
+                app.root.current = "surveyScreen"
+
+<SurveyScreen>
+    name: "surveyScreen"
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Name"
+            TextInput:
+                id: name
+                multiline: 'False'
+                halign: "center"
+                write_tab: False
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Surname"
+            TextInput:
+                id: surname
+                multiline: False
+                halign: "center"
+                write_tab: False
+        BoxLayout:
+            orientation: "vertical"
+            Slider:
+                id: age
+                min: 0
+                max: 100
+                step: 1
+                padding: 15
+                value: int(age_as_txt.text)
+            AnchorLayout:
+                TextInput:
+                    id: age_as_txt
+                    multiline: False
+                    size_hint: 0.2, 1
+                    text: str(int(age.value))
+                    halign: "center"
+                    write_tab: False
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "What is your Python level"
+            BoxLayout:
+                orientation: "horizontal"
+                ToggleButton:
+                    id: entry
+                    text: "Entry"
+                    group: "python_experience"
+                ToggleButton:
+                    id: intermediate
+                    text: "Intermediate"
+                    state: "down"
+                    group: "python_experience"
+                ToggleButton:
+                    id: advanced
+                    text: "Advanced"
+                    group: "python_experience"
+
+
+
+
